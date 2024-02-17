@@ -1,0 +1,7 @@
+dao\TicketDAO.class
+service\TicketService.class
+service\TicketServiceImpl.class
+service\TicketServicePublisher.class
+model\Ticket.class
+util\DbConnection.class
+util\SOAPUtil.class

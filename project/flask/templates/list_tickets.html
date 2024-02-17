@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Tickets List</title>
+</head>
+<body>
+<div class="container">
+    <h1>Ticket Management</h1>
+    <!-- Ticket List -->
+    <div class="table-container">
+        <h2>Tickets List</h2>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nom du Film</th>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Salle</th>
+                <th>Prix</th>
+                <th>Actions</th>
+            </tr>
+            {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.id }}</td>
+                <td>{{ ticket.nomFilm }}</td>
+                <td>{{ ticket.date }}</td>
+                <td>{{ ticket.heure }}</td>
+                <td>{{ ticket.salle }}</td>
+                <td>{{ ticket.prix }}</td>
+                <td class="actions-container">
+                    <form method="post" action="/update_ticket/{{ ticket.id }}">
+                        <input type="text" name="new_nomFilm" placeholder="New Film Name" />
+                        <input type="text" name="new_date" placeholder="New Date" />
+                        <input type="text" name="new_heure" placeholder="New Heure" />
+                        <input type="text" name="new_salle" placeholder="New Salle" />
+                        <input type="number" name="new_prix" step="0.01" placeholder="New Prix" />
+                        <button type="submit">Update</button>
+                    </form>
+                    <form method="post" action="/delete_ticket/{{ ticket.id }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+</body>
+</html>

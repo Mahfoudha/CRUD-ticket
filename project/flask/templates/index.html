@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Ticket Management</title>
+</head>
+<body>
+<div class="container">
+    <h1>CRUD SUR TICKETS</h1>
+    <div class="button-container">
+        <a href="{{ url_for('add_ticket') }}" class="button primary">Ajouter Ticket</a>
+        <a href="{{ url_for('list_tickets') }}" class="button secondary">Lister Tickets</a>
+    </div>
+</div>
+</body>
+</html>
